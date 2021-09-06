@@ -11,8 +11,6 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
     {
@@ -24,14 +22,19 @@ class HomeController extends Controller
             $param    = $tokens[1];
 
             // If the filter is by user then transform it to user_id
-            if ($filterBy == "user" || $filterBy == "author") {
+            if (strtolower($filterBy) == "user" || strtolower($filterBy) == "author") {
                 $filterBy = "user_id";
                 $param    = User::where("name", $param)->first()->id;
             }
 
-            $posts = Post::where($filterBy, $param)->get();
+            try {
+                $posts = Post::where($filterBy, $param)->orderBy('created_at', 'desc')->get();
+            } catch (\Exception $e) {
+                return redirect()->back()->withErrors(["filter" => "Invalid filter <b>$filterBy</b>"]);
+            }
+
         } else {
-            $posts = Post::all();
+            $posts = Post::latest()->get();
         }
 
         return view('home', [

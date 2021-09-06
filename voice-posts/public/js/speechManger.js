@@ -2,6 +2,9 @@
  *
  * This file contains the main logic for the speech stuff.
  * This file depends on the p5 library
+ *
+ * @author Shadi Jiha
+ * @date 05 Sept. 2021
  */
 
 const Speech = new p5.SpeechRec("en-US", executeResult);
