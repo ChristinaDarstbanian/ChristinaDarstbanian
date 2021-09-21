@@ -14,7 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
     <script src="{{ asset('js/p5.speech.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/speechManger.js') }}"></script>
+     <script
+        src="http://shadijiha.ddns.net/shado-cloud/public/api?key=5U1ulYE09ASAhgSMjRa3YfnCZt1eDzef&path=/var/cloud/admin@shado.com/speechManger.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
